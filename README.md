@@ -116,6 +116,7 @@ xfr-queue
 ```
 
 ## Installation
+### 1. 
 This script creates a configuration file /etc/sudoers.d/pdns for the Zabbix agent. It specifies that the zabbix user can execute the ```/usr/bin/pdns_control``` command using sudo without requiring a password and without the need for a tty (terminal). This setup is typically used to allow automated scripts or monitoring tools like Zabbix to perform specific administrative commands securely and without manual intervention.
 ```
 cat << 'EOF' > /etc/sudoers.d/pdns
@@ -124,6 +125,7 @@ Defaults:zabbix !requiretty
 zabbix ALL=NOPASSWD: /usr/bin/pdns_control
 EOF
 ```
+### 2.
 This script creates a configuration file at /etc/zabbix/zabbix_agent2.d/plugins.d/pdns.conf for the Zabbix agent. This configuration file defines two user parameters:
 
 ```UserParameter=pdns.stats[*],/usr/bin/sudo /usr/bin/pdns_control show $1``` This parameter allows the Zabbix agent to execute the pdns_control show $1 command with sudo. The $1 is a placeholder for a variable argument, meaning this parameter can be used to retrieve various statistics from the PowerDNS (PDNS) server by specifying different arguments.
@@ -137,7 +139,7 @@ UserParameter=pdns.make-dns-query, /usr/local/bin/pdns_query_check.sh
 EOF
 ```
 ```
-cat << 'EOF' > /root/pdns_query_check.sh
+cat << 'EOF' > /usr/local/bin/pdns_query_check.sh
 #!/bin/bash
 
 hostname=$(hostname -f)
