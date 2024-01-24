@@ -3,7 +3,7 @@
 ## How It Works
 This template collects PowerDNS metrics with Zabbix agent 2. Metrics come from 2 different parts. The first one is collected with the ```pdns_control show *``` command. The second one is collected with the ```pdns_query_check.sh``` script.
 
-In order for the ```pdns_query_check.sh``` script to work, the DNS A record of the server's hostname must be registered on the PowerDNS server.
+In order for the ```pdns_query_check.sh``` script to run, the DNS A record of the server's hostname must be registered on the PowerDNS server.
 
 ## Disclaimer
 This template allows you to monitor [specified metrics](https://github.com/mhammedyildirim/powerdns-zabbix-template#metrics). There are only 3 pre-configured triggers. These are pre-configured trigger: ```PowerDNS: pdns.make-dns-query```, ```PowerDNS: security-status (Mandatory Upgrade)```, ```PowerDNS: security-status (Recommended Upgrade)``` .
