@@ -138,6 +138,8 @@ UserParameter=pdns.stats[*],/usr/bin/sudo /usr/bin/pdns_control show $1
 UserParameter=pdns.make-dns-query, /usr/local/bin/pdns_query_check.sh
 EOF
 ```
+### 3.
+This script checks whether the DNS server responds to queries.
 ```
 cat << 'EOF' > /usr/local/bin/pdns_query_check.sh
 #!/bin/bash
