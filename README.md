@@ -158,7 +158,7 @@ exit 0
 EOF
 ```
 ### 4.
-Finally, the ```zabbix-agent2.service``` service is restarted for the changes to take effect.
+Finally, the ```zabbix-agent2.service``` service must be restarted for the changes to take effect.
 ```
 systemctl restart zabbix-agent2.service
 ```
