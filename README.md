@@ -1,5 +1,8 @@
 # Zabbix Template For PowerDNS Monitoring
 
+## How It Works
+
+
 ## Disclaimer
 This template allows you to monitor [specified metrics](https://github.com/mhammedyildirim/powerdns-zabbix-template#metrics). There are only 3 pre-configured triggers. These are pre-configured trigger: ```PowerDNS: pdns.make-dns-query```, ```PowerDNS: security-status (Mandatory Upgrade)```, ```PowerDNS: security-status (Recommended Upgrade)``` .
 
@@ -107,9 +110,6 @@ uptime
 user-msec
 xfr-queue
 ```
-
-## How It Works
-
 
 ## Installation
 ```
