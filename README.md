@@ -34,4 +34,3 @@ EOF
 ```
 systemctl restart zabbix-agent2.service
 ```
-``
