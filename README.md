@@ -164,3 +164,5 @@ systemctl restart zabbix-agent2.service
 ```
 ### 5.
 Go to the Zabbix web interface. Click the Import button in the Configuration>Templates section and select the ```PowerDNS-Zabbix-Template.yaml``` file.
+
+The template is now ready to use.
