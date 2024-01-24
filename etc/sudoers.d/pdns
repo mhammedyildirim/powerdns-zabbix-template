@@ -1,0 +1,3 @@
+# Zabbix Agent PDNS
+Defaults:zabbix !requiretty
+zabbix ALL=NOPASSWD: /usr/bin/pdns_control, /var/run/pdns/pdns.controlsocket
