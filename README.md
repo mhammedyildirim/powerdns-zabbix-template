@@ -1,5 +1,9 @@
 # Zabbix Template For PowerDNS Monitoring
 
+## Disclaimer
+This template allows you to monitor specified metrics. There are only 3 pre-configured triggers.
+The instructions and template were tested on Rocky Linux 9 operating system and PowerDNS version 4.8.3.
+
 ## Installation
 ```
 cat << 'EOF' > /etc/sudoers.d/pdns
