@@ -116,11 +116,12 @@ xfr-queue
 ```
 
 ## Installation
+This script creates a configuration file /etc/sudoers.d/pdns for the Zabbix agent. It specifies that the zabbix user can execute the /usr/bin/pdns_control command using sudo without requiring a password and without the need for a tty (terminal). This setup is typically used to allow automated scripts or monitoring tools like Zabbix to perform specific administrative commands securely and without manual intervention.
 ```
 cat << 'EOF' > /etc/sudoers.d/pdns
 # Zabbix Agent PDNS
 Defaults:zabbix !requiretty
-zabbix ALL=NOPASSWD: /usr/bin/pdns_control, /var/run/pdns/pdns.controlsocket
+zabbix ALL=NOPASSWD: /usr/bin/pdns_control
 EOF
 ```
 ```
