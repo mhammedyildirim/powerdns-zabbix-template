@@ -139,7 +139,7 @@ UserParameter=pdns.make-dns-query, /usr/local/bin/pdns_query_check.sh
 EOF
 ```
 ### 3.
-
+This command creates a script file at /usr/local/bin/pdns_query_check.sh that checks whether the DNS server responds to queries.
 ```
 cat << 'EOF' > /usr/local/bin/pdns_query_check.sh
 #!/bin/bash
