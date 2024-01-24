@@ -1,0 +1,360 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-01-24T08:31:29Z'
+  groups:
+    - uuid: f4ce70da71a0450c984c5c2f1d352fd4
+      name: dns
+  templates:
+    - uuid: cc576f9ab14f44c084fb7f5f92072724
+      template: 'PowerDNS Stats'
+      name: 'PowerDNS Stats'
+      description: PowerDNS
+      groups:
+        - name: dns
+      items:
+        - uuid: 7087a5f03fb14e9ea55b6061d255a28e
+          name: pdns.make-dns-query
+          key: pdns.make-dns-query
+          trends: '0'
+          value_type: TEXT
+          triggers:
+            - uuid: 248bb152e0574701b98a14eb7c8e4f54
+              expression: 'last(/PowerDNS Stats/pdns.make-dns-query)="FAIL"'
+              name: pdns.make-dns-query
+              priority: HIGH
+              description: 'DNS server does not respond to queries.'
+        - uuid: d165ca0a109a45d39444e33eb41f497d
+          name: backend-latency
+          key: 'pdns.stats[backend-latency]'
+        - uuid: 6e8325e7132d44a1bbcd22aa1fb3cd74
+          name: backend-queries
+          key: 'pdns.stats[backend-queries]'
+        - uuid: fd40b3bbffea44339394627dc2091508
+          name: cache-latency
+          key: 'pdns.stats[cache-latency]'
+        - uuid: 4a015f6afde24d878b85876f654d7bc9
+          name: corrupt-packets
+          key: 'pdns.stats[corrupt-packets]'
+        - uuid: 2d2ff26e28324fe5b936e4a3f524cf4b
+          name: cpu-iowait
+          key: 'pdns.stats[cpu-iowait]'
+        - uuid: 903770f3498942519a615a5976d9ebe7
+          name: cpu-steal
+          key: 'pdns.stats[cpu-steal]'
+        - uuid: 319c0e06bbc24e8c8b4b5c9708cccb88
+          name: deferred-cache-inserts
+          key: 'pdns.stats[deferred-cache-inserts]'
+        - uuid: 820b7916cdab41caaa41f81c2a3ec22f
+          name: deferred-cache-lookup
+          key: 'pdns.stats[deferred-cache-lookup]'
+        - uuid: c259f08d44d24ec7912e723749b52c1d
+          name: deferred-packetcache-inserts
+          key: 'pdns.stats[deferred-packetcache-inserts]'
+        - uuid: 6e787723881e49ed8f987971a037687d
+          name: deferred-packetcache-lookup
+          key: 'pdns.stats[deferred-packetcache-lookup]'
+        - uuid: b3490877ef7c4a93b84ef651a591b345
+          name: dnsupdate-answers
+          key: 'pdns.stats[dnsupdate-answers]'
+        - uuid: 4eba49b21c6a4fab8090065020aba456
+          name: dnsupdate-changes
+          key: 'pdns.stats[dnsupdate-changes]'
+        - uuid: da38fa201b4f4defbd2665384b508871
+          name: dnsupdate-queries
+          key: 'pdns.stats[dnsupdate-queries]'
+        - uuid: d17a0883cf554ac487017f6e16ace560
+          name: dnsupdate-refused
+          key: 'pdns.stats[dnsupdate-refused]'
+        - uuid: ac64b845bc254b0ea40c69464716b48c
+          name: fd-usage
+          key: 'pdns.stats[fd-usage]'
+        - uuid: bc1ec49d5ede4134b90e55ad3c91120d
+          name: incoming-notifications
+          key: 'pdns.stats[incoming-notifications]'
+        - uuid: 5a1b16e5ec124a3db0506d63b6442848
+          name: key-cache-size
+          key: 'pdns.stats[key-cache-size]'
+        - uuid: a133db72463647df8a312ff2c52576e7
+          name: latency
+          key: 'pdns.stats[latency]'
+        - uuid: 2703b670874d46378d46dce52a63890a
+          name: meta-cache-size
+          key: 'pdns.stats[meta-cache-size]'
+        - uuid: a3d1576a378c46b889dcfb651b305850
+          name: noerror-packets
+          key: 'pdns.stats[noerror-packets]'
+        - uuid: 1d81ba9dd4284934804e2bc5f35e4be3
+          name: nxdomain-packets
+          key: 'pdns.stats[nxdomain-packets]'
+        - uuid: 0b8287742cbf40a2b6ab2336a3773cad
+          name: open-tcp-connections
+          key: 'pdns.stats[open-tcp-connections]'
+        - uuid: 247570030bb147a4a8f00ac13ad03173
+          name: overload-drops
+          key: 'pdns.stats[overload-drops]'
+        - uuid: 7562cee119eb458abe3ec0f57ec0990e
+          name: packetcache-hit
+          key: 'pdns.stats[packetcache-hit]'
+        - uuid: 4184c21aa7d441cea85648e5e2db9ecc
+          name: packetcache-miss
+          key: 'pdns.stats[packetcache-miss]'
+        - uuid: 2e95eee7588040b985030535fee808c5
+          name: packetcache-size
+          key: 'pdns.stats[packetcache-size]'
+        - uuid: 4fd995fe204748f99c84fce74bf51954
+          name: qsize-q
+          key: 'pdns.stats[qsize-q]'
+        - uuid: 734a1d8ecb694a86b13325ce0651adc2
+          name: query-cache-hit
+          key: 'pdns.stats[query-cache-hit]'
+        - uuid: 222408047ab44ea3bc88d115fe6ed026
+          name: query-cache-miss
+          key: 'pdns.stats[query-cache-miss]'
+        - uuid: 041d51efb4034bcea6f6370cf6292881
+          name: query-cache-size
+          key: 'pdns.stats[query-cache-size]'
+        - uuid: 1bdcacc9f8124222bd83c04638520c6c
+          name: rd-queries
+          key: 'pdns.stats[rd-queries]'
+        - uuid: 3004408cf76349c39bf7ed95bef36370
+          name: real-memory-usage
+          key: 'pdns.stats[real-memory-usage]'
+        - uuid: 6cc455d71f5f46fbac75a03ebfdba714
+          name: receive-latency
+          key: 'pdns.stats[receive-latency]'
+        - uuid: 3ebdaa8727664a52af0d7c9597241de0
+          name: recursing-answers
+          key: 'pdns.stats[recursing-answers]'
+        - uuid: 5e6772871c9b474abb08fbfc74e7b7e2
+          name: recursing-questions
+          key: 'pdns.stats[recursing-questions]'
+        - uuid: 139e0e17e59649928813ef2c2897b29f
+          name: recursion-unanswered
+          key: 'pdns.stats[recursion-unanswered]'
+        - uuid: 064ada587451433781e442f71f9fcd4b
+          name: ring-logmessages-capacity
+          key: 'pdns.stats[ring-logmessages-capacity]'
+        - uuid: cb273975f49945d1833f0d4382d06aaf
+          name: ring-logmessages-size
+          key: 'pdns.stats[ring-logmessages-size]'
+        - uuid: c2c16e96f8754addb75a66453b8c4957
+          name: ring-noerror-queries-capacity
+          key: 'pdns.stats[ring-noerror-queries-capacity]'
+        - uuid: f0d9a40ce1c54f56ac250be05f02dc33
+          name: ring-noerror-queries-size
+          key: 'pdns.stats[ring-noerror-queries-size]'
+        - uuid: e1cfafac0ad54cfc9545713a4bb01174
+          name: ring-nxdomain-queries-capacity
+          key: 'pdns.stats[ring-nxdomain-queries-capacity]'
+        - uuid: f43b606057534821b0a319b8fa0f0d0d
+          name: ring-nxdomain-queries-size
+          key: 'pdns.stats[ring-nxdomain-queries-size]'
+        - uuid: 92e8e66fb59b4be0b94059639b5f803f
+          name: ring-queries-capacity
+          key: 'pdns.stats[ring-queries-capacity]'
+        - uuid: 9048057ed50d43c7b4b0988a0444cfc6
+          name: ring-queries-size
+          key: 'pdns.stats[ring-queries-size]'
+        - uuid: fcb1d71371bf4cbd9fa984c64ab3f77a
+          name: ring-remotes-capacity
+          key: 'pdns.stats[ring-remotes-capacity]'
+        - uuid: c602bf2ba635434bbac66956fa813499
+          name: ring-remotes-corrupt-capacity
+          key: 'pdns.stats[ring-remotes-corrupt-capacity]'
+        - uuid: eb3f5a9bae5e41edbc78d0af4eb43b5c
+          name: ring-remotes-corrupt-size
+          key: 'pdns.stats[ring-remotes-corrupt-size]'
+        - uuid: 06eef20fa04c4157971ddc7e8079cac6
+          name: ring-remotes-size
+          key: 'pdns.stats[ring-remotes-size]'
+        - uuid: 0de62acb2b124491ba2a5f9e84f25d12
+          name: ring-remotes-unauth-capacity
+          key: 'pdns.stats[ring-remotes-unauth-capacity]'
+        - uuid: 9d42ea9f40654e9e86067a1f712b18dd
+          name: ring-remotes-unauth-size
+          key: 'pdns.stats[ring-remotes-unauth-size]'
+        - uuid: 7cbedf17a81d4c4184354e5c87ce0f67
+          name: ring-servfail-queries-capacity
+          key: 'pdns.stats[ring-servfail-queries-capacity]'
+        - uuid: d94b5e8f3d7a409b80bb36011ba7228c
+          name: ring-servfail-queries-size
+          key: 'pdns.stats[ring-servfail-queries-size]'
+        - uuid: 06e4ba6067ff4f658401aa5fcd2c5a0b
+          name: ring-unauth-queries-capacity
+          key: 'pdns.stats[ring-unauth-queries-capacity]'
+        - uuid: 4ce5b1636618432fbd0410a5c4d865b4
+          name: ring-unauth-queries-size
+          key: 'pdns.stats[ring-unauth-queries-size]'
+        - uuid: 880dfa15756c45c4b8dde4ae30711341
+          name: security-status
+          key: 'pdns.stats[security-status]'
+          description: |
+            PowerDNS software periodically tries to resolve ‘auth-x.y.z.security-status.secpoll.powerdns.com|TXT’ or ‘recursor-x.y.z.security-status.secpoll.powerdns.com’.
+            
+            The data returned is in one of the following forms:
+            
+                NXDOMAIN or resolution failure -> 0
+                “1 Ok” -> 1
+                “2 Upgrade recommended for security reasons, see …” -> 2
+                “3 Upgrade mandatory for security reasons, see …” -> 3
+            
+            In cases 2 or 3, periodic logging commences. Case 2 can also be issued for non-security related upgrade recommendations for pre-releases. The metric security-status is set to 2 or 3 respectively. If at a later date, resolution fails, the security-status is not reset to 1. It could be lowered however if we discover the security status is less urgent than we thought.
+            
+            If resolution fails, and the previous security-status was 1, the new security-status becomes 0 (‘no data’). If the security-status was higher than 1, it will remain that way, and not get set to 0.
+            
+            In this way, security-status of 0 really means ‘no data’, and cannot mask a known problem.
+          valuemap:
+            name: 'PowerDNS Security Status'
+          triggers:
+            - uuid: 18c31b7b5e8c4d708d7c0cb301a7cd4a
+              expression: 'last(/PowerDNS Stats/pdns.stats[security-status])=3'
+              name: 'PowerDNS: security-status (Mandatory Upgrade)'
+              priority: HIGH
+            - uuid: 02592c47be7b4153aca74a619704f402
+              expression: 'last(/PowerDNS Stats/pdns.stats[security-status])=2'
+              name: 'PowerDNS: security-status (Recommended Upgrade)'
+              priority: WARNING
+        - uuid: c1571f648eaa4a06ad33060e9d2863ed
+          name: send-latency
+          key: 'pdns.stats[send-latency]'
+        - uuid: b5c465910c944238afe5e57c58837b5c
+          name: servfail-packets
+          key: 'pdns.stats[servfail-packets]'
+        - uuid: e51b0bf094704a36a7fc5f39c6a9861c
+          name: signature-cache-size
+          key: 'pdns.stats[signature-cache-size]'
+        - uuid: 5720cf6bc1694867ade93332fe9fd9a0
+          name: signatures
+          key: 'pdns.stats[signatures]'
+        - uuid: 6bba37e9ff2442e8897d88857049ee78
+          name: sys-msec
+          key: 'pdns.stats[sys-msec]'
+        - uuid: 1a1766d93dac4d26892f805ecd029274
+          name: tcp-answers-bytes
+          key: 'pdns.stats[tcp-answers-bytes]'
+        - uuid: 6a519419c1604ce9bc01012cd3f089ac
+          name: tcp-answers
+          key: 'pdns.stats[tcp-answers]'
+        - uuid: 0e81efac6085464abe1cd85dc2983d01
+          name: tcp-cookie-queries
+          key: 'pdns.stats[tcp-cookie-queries]'
+        - uuid: a03de2acf1274152bc224f91756c6af9
+          name: tcp-queries
+          key: 'pdns.stats[tcp-queries]'
+        - uuid: 2af9f8289f0c4aaa8924552fe489b8f6
+          name: tcp4-answers-bytes
+          key: 'pdns.stats[tcp4-answers-bytes]'
+        - uuid: 2cc71da6584d462fbe4027c16d13d729
+          name: tcp4-answers
+          key: 'pdns.stats[tcp4-answers]'
+        - uuid: f0236d57fcd24feeac07bff8495d095a
+          name: tcp4-queries
+          key: 'pdns.stats[tcp4-queries]'
+        - uuid: 1f0190aed43c488782a4f1dbc34a815d
+          name: tcp6-answers-bytes
+          key: 'pdns.stats[tcp6-answers-bytes]'
+        - uuid: f741a23ed498433b8da4589bb8b7c21a
+          name: tcp6-answers
+          key: 'pdns.stats[tcp6-answers]'
+        - uuid: e3bc87c8218e477aa064954c80edd252
+          name: tcp6-queries
+          key: 'pdns.stats[tcp6-queries]'
+        - uuid: 20c15b754aca40bfae0e873550fa8386
+          name: timedout-packets
+          key: 'pdns.stats[timedout-packets]'
+        - uuid: 0c019c1aafa94c65b847ca17c872034b
+          name: udp-answers-bytes
+          key: 'pdns.stats[udp-answers-bytes]'
+        - uuid: 69c0a31746434d9f907be7f058f8620c
+          name: udp-answers
+          key: 'pdns.stats[udp-answers]'
+        - uuid: ca807b2f871247f793a421f6670ee458
+          name: udp-cookie-queries
+          key: 'pdns.stats[udp-cookie-queries]'
+        - uuid: f70d857007fa4c599e6923ec1af8046a
+          name: udp-do-queries
+          key: 'pdns.stats[udp-do-queries]'
+        - uuid: 81fbabd83b7a453d9456e64926634c07
+          name: udp-in-csum-errors
+          key: 'pdns.stats[udp-in-csum-errors]'
+        - uuid: b4cf6b1fb33643e79ba34690cc4adba3
+          name: udp-in-errors
+          key: 'pdns.stats[udp-in-errors]'
+        - uuid: 6162039ad8544edab94da7112fb7bcc5
+          name: udp-noport-errors
+          key: 'pdns.stats[udp-noport-errors]'
+        - uuid: e9cabfbba10641a69fb110ce417cb3f8
+          name: udp-queries
+          key: 'pdns.stats[udp-queries]'
+        - uuid: e44634077a8b42d98b51a48783f32d45
+          name: udp-recvbuf-errors
+          key: 'pdns.stats[udp-recvbuf-errors]'
+        - uuid: d0c6464e792d4e1b8e5480dab3427853
+          name: udp-sndbuf-errors
+          key: 'pdns.stats[udp-sndbuf-errors]'
+        - uuid: 9c391a32f8c24863bb9ee0f4244a1d7a
+          name: udp4-answers-bytes
+          key: 'pdns.stats[udp4-answers-bytes]'
+        - uuid: 6b45426b01104660a6d200887614c45d
+          name: udp4-answers
+          key: 'pdns.stats[udp4-answers]'
+        - uuid: fb41d6788d9c44b198c6765baf3711bc
+          name: udp4-queries
+          key: 'pdns.stats[udp4-queries]'
+        - uuid: 4a7cb50dd0dd4294b6a80b4b7279a6b2
+          name: udp6-answers-bytes
+          key: 'pdns.stats[udp6-answers-bytes]'
+        - uuid: 3921d521b3634e67bc0a21689f83aa01
+          name: udp6-answers
+          key: 'pdns.stats[udp6-answers]'
+        - uuid: b97dd5eefa1e454fb3e952326896fa6a
+          name: udp6-in-csum-errors
+          key: 'pdns.stats[udp6-in-csum-errors]'
+        - uuid: 03a0d3d6f8844ca28dba2f8891e3aa1b
+          name: udp6-in-errors
+          key: 'pdns.stats[udp6-in-errors]'
+        - uuid: 65e2da430352422dad69ac78b88e9731
+          name: udp6-noport-errors
+          key: 'pdns.stats[udp6-noport-errors]'
+        - uuid: f8b32663e87747359f5315eb4e271b5d
+          name: udp6-queries
+          key: 'pdns.stats[udp6-queries]'
+        - uuid: b0bd4184c731413db9797804a6c8cb4e
+          name: udp6-recvbuf-errors
+          key: 'pdns.stats[udp6-recvbuf-errors]'
+        - uuid: ef23cfb025bf430b9fab533fa74eb930
+          name: udp6-sndbuf-errors
+          key: 'pdns.stats[udp6-sndbuf-errors]'
+        - uuid: 150707d05e194b158db62d9a8fe30943
+          name: unauth-packets
+          key: 'pdns.stats[unauth-packets]'
+        - uuid: f104d637c9824df7948d53b6ce18c70d
+          name: uptime
+          key: 'pdns.stats[uptime]'
+        - uuid: 80a0aa9e061f4350874f5986ba33c090
+          name: user-msec
+          key: 'pdns.stats[user-msec]'
+        - uuid: 8dd4aa79680d42eab503ae603e74cffe
+          name: xfr-queue
+          key: 'pdns.stats[xfr-queue]'
+        - uuid: 45d74f772af74344bdb44eba51e046f2
+          name: zone-cache-hit
+          key: 'pdns.stats[zone-cache-hit]'
+        - uuid: 6ec21e07faa34ddd8cb0f6d6f610ff09
+          name: zone-cache-miss
+          key: 'pdns.stats[zone-cache-miss]'
+        - uuid: 6b6601becad24fcbba595a71f8db0b62
+          name: zone-cache-size
+          key: 'pdns.stats[zone-cache-size]'
+      valuemaps:
+        - uuid: 7a2f60d3d46c40f48ff1f736ab3a963e
+          name: 'PowerDNS Security Status'
+          mappings:
+            - value: '0'
+              newvalue: 'NXDOMAIN or Resolution Failure'
+            - value: '1'
+              newvalue: Ok
+            - value: '2'
+              newvalue: 'Upgrade recommended for security reasons'
+            - value: '3'
+              newvalue: 'Upgrade mandatory for security reasons'
