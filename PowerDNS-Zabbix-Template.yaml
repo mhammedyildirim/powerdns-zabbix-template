@@ -1,16 +1,16 @@
 zabbix_export:
   version: '6.0'
-  date: '2024-01-24T08:31:29Z'
+  date: '2024-01-25T13:38:39Z'
   groups:
-    - uuid: f4ce70da71a0450c984c5c2f1d352fd4
-      name: dns
+    - uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
   templates:
     - uuid: cc576f9ab14f44c084fb7f5f92072724
       template: 'PowerDNS Stats'
       name: 'PowerDNS Stats'
       description: PowerDNS
       groups:
-        - name: dns
+        - name: Templates
       items:
         - uuid: 7087a5f03fb14e9ea55b6061d255a28e
           name: pdns.make-dns-query
@@ -346,6 +346,11 @@ zabbix_export:
         - uuid: 6b6601becad24fcbba595a71f8db0b62
           name: zone-cache-size
           key: 'pdns.stats[zone-cache-size]'
+      tags:
+        - tag: class
+          value: software
+        - tag: target
+          value: powerdns
       valuemaps:
         - uuid: 7a2f60d3d46c40f48ff1f736ab3a963e
           name: 'PowerDNS Security Status'
