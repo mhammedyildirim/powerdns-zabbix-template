@@ -157,6 +157,9 @@ echo "OK"
 exit 0
 EOF
 ```
+```
+chmod +x /usr/local/bin/pdns_query_check.sh
+```
 ### 4.
 Finally, the ```zabbix-agent2.service``` service must be restarted for the changes to take effect.
 ```
